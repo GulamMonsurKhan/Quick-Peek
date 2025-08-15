@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Qwiki</title>
-  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="popup.css" />
 </head>
 <body>
-  <h1>Qwiki</h1>
-  <input type="text" id="searchInput" placeholder="Search Wikipedia...">
-  <button id="searchBtn">Search</button>
-  <div id="results"></div>
+  <h1>Wikipedia Search</h1>
+  <input type="text" id="wikiInput" class="searchInput" placeholder="Search Wikipedia..." />
+  <button id="wikiBtn" class="searchBtn">Search Wikipedia</button>
+  <div id="wikiResults"></div>
+
+  <h2>Google Search</h2>
+  <input type="text" id="googleInput" class="searchInput" placeholder="Search Google..." />
+  <button id="googleBtn" class="searchBtn">Search Google</button>
+  <div id="googleResults"></div>
+
   <script src="popup.js"></script>
 </body>
 </html>

@@ -1,14 +1,22 @@
-document.getElementById('searchBtn').addEventListener('click', searchWikipedia);
+document.getElementById('wikiBtn').addEventListener('click', searchWikipedia);
 
-document.getElementById('searchInput').addEventListener('keydown', function (event) {
+document.getElementById('wikiInput').addEventListener('keydown', function (event) {
   if (event.key === 'Enter') {
     searchWikipedia();
   }
 });
 
+document.getElementById('googleBtn').addEventListener('click', searchGoogle);
+
+document.getElementById('googleInput').addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') {
+    searchGoogle();
+  }
+});
+
 async function searchWikipedia() {
-  const query = document.getElementById('searchInput').value.trim();
-  const resultsDiv = document.getElementById('results');
+  const query = document.getElementById('wikiInput').value.trim();
+  const resultsDiv = document.getElementById('wikiResults');
   resultsDiv.innerHTML = ''; // Clear previous results
 
   if (!query) {
@@ -38,4 +46,18 @@ async function searchWikipedia() {
     console.error(err);
     resultsDiv.innerHTML = '<p>Error fetching results.</p>';
   }
+}
+
+function searchGoogle() {
+  const query = document.getElementById('googleInput').value.trim();
+  const resultsDiv = document.getElementById('googleResults');
+  resultsDiv.innerHTML = ''; 
+  
+  if (!query) {
+    resultsDiv.innerHTML = '<p>Please enter a search term.</p>';
+    return;
+  }
+
+  const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+  window.open(url, '_blank');
 }
